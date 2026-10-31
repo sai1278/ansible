@@ -1,0 +1,13 @@
+- name: Play1
+  hosts: local
+  connection: local 
+  vars:
+    sai: "Hello from Play1"
+  tasks:
+    - name: Play1 and TASK-1
+      package:
+        name: "{{ item }}"
+        state: present
+
+      loop: "{{ packages }}"
+      when: packages is defined
